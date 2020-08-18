@@ -6,6 +6,7 @@
   },
   "spec": {
     "apiServer": "https://10.20.0.3:8443",
-    "namespace": "default"
+    "namespace": "default",
+    "injectLabels": true
   }
 }
