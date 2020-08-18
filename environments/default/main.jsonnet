@@ -10,6 +10,8 @@ ws {
     ws_cluster_hostname: "podinfo.minikube.local",
     ws_name: "podinfo-demo",
     ws_has_ingress: 'true',
+    ws_readiness_probe: '/readyz',
+    ws_port: 9898,
 
     resource_requests_cpu: '100m',
     resource_requests_ram: '64Mi',
