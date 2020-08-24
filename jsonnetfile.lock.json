@@ -8,8 +8,8 @@
           "subdir": ""
         }
       },
-      "version": "04540edc9deb838bb81d9600ea83f680c73bb742",
-      "sum": "GFi4l0ZIXWwG7JeEGEeLe0cpb19/QggDJPMBqjSMjzw="
+      "version": "a831c9cdb73310a363f6579b4d3e60ae3d1b8d32",
+      "sum": "6Hn36W5qqLDR2EwzHI0bhyhh9USTTz9UE40UJ8+smDw="
     },
     {
       "name": "ksonnet-util",
@@ -19,7 +19,7 @@
           "subdir": "ksonnet-util"
         }
       },
-      "version": "0d5c2119373cb53d9f02fb82b94857412f7540c8",
+      "version": "2bead07b1497283ce4e3b3fd7f2c0b141a973a13",
       "sum": "TGgjbv8oGfmMNjfvcgxi2cX9RAJKGZnYGLEhzK2wNjM="
     },
     {
