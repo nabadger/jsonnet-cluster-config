@@ -1,29 +1,17 @@
 {
+  "version": 1,
   "dependencies": [
     {
-      "name": "jsonnet-libs",
-      "source": {
-        "git": {
-          "remote": "https://github.com/nabadger/jsonnet-libs",
-          "subdir": ""
-        }
-      },
-      "version": "a831c9cdb73310a363f6579b4d3e60ae3d1b8d32",
-      "sum": "6Hn36W5qqLDR2EwzHI0bhyhh9USTTz9UE40UJ8+smDw="
-    },
-    {
-      "name": "ksonnet-util",
       "source": {
         "git": {
           "remote": "https://github.com/grafana/jsonnet-libs",
           "subdir": "ksonnet-util"
         }
       },
-      "version": "2bead07b1497283ce4e3b3fd7f2c0b141a973a13",
+      "version": "fbff57b2c10a8458f8c0a43afe78f39b2fe73363",
       "sum": "TGgjbv8oGfmMNjfvcgxi2cX9RAJKGZnYGLEhzK2wNjM="
     },
     {
-      "name": "ksonnet.beta.4",
       "source": {
         "git": {
           "remote": "https://github.com/ksonnet/ksonnet-lib",
@@ -32,6 +20,17 @@
       },
       "version": "0d2f82676817bbf9e4acf6495b2090205f323b9f",
       "sum": "ur22hPQq0JAPBxm8hNMcwjumj4MkozDwOKiGZvVMYh4="
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/nabadger/jsonnet-libs",
+          "subdir": ""
+        }
+      },
+      "version": "e9cbf467e59abaef29806551f8cfa3ab4cc1789f",
+      "sum": "AFVboXVpXlAcfa8mX4lLHBjXtqf26jlge2ASlAYvIiQ="
     }
-  ]
+  ],
+  "legacyImports": false
 }

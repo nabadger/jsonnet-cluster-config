@@ -1,17 +1,7 @@
 {
+  "version": 1,
   "dependencies": [
     {
-      "name": "jsonnet-libs",
-      "source": {
-        "git": {
-          "remote": "https://github.com/nabadger/jsonnet-libs",
-          "subdir": ""
-        }
-      },
-      "version": "master"
-    },
-    {
-      "name": "ksonnet-util",
       "source": {
         "git": {
           "remote": "https://github.com/grafana/jsonnet-libs",
@@ -21,7 +11,6 @@
       "version": "master"
     },
     {
-      "name": "ksonnet.beta.4",
       "source": {
         "git": {
           "remote": "https://github.com/ksonnet/ksonnet-lib",
@@ -29,6 +18,16 @@
         }
       },
       "version": "master"
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/nabadger/jsonnet-libs",
+          "subdir": ""
+        }
+      },
+      "version": "master"
     }
-  ]
+  ],
+  "legacyImports": true
 }
