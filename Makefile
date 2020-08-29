@@ -36,7 +36,7 @@ fmt :
 
 _fmt :
 	@echo ">> Running tk fmt"
-	@if ! tk fmt . ; then \
+	@if ! $(CONTAINER_CMD) fmt . ; then \
 		echo "tk fmt failed" >&2; \
 		exit 1;\
 	fi
@@ -66,7 +66,7 @@ _generate :
 		app_path="$$(dirname $$f)" ;\
 		rendered_path="./rendered/$${app_path}" ;\
 		mkdir -p $${rendered_path} ;\
-		tk export $$(dirname $$f) $${rendered_path} > /dev/null ;\
+	      $(CONTAINER_CMD) export $$(dirname $$f) $${rendered_path} > /dev/null ;\
 	done
 
 .PHONY: _diff, _generate, _fmt, _clean, diff, generate, help, fmt, clean
