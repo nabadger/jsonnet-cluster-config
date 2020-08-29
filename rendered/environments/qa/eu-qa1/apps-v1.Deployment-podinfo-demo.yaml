@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/name: podinfo
+    app.kubernetes.io/part-of: podinfo
+    app.mintel.com/owner: team-a
+    name: podinfo-demo
+  name: podinfo-demo
+spec:
+  minReadySeconds: 10
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: podinfo-demo
+  template:
+    metadata:
+      labels:
+        name: podinfo-demo
+    spec:
+      containers:
+      - {}

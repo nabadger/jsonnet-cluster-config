@@ -1,6 +1,6 @@
 all :  ## (Default) Run whole make process inside a docker container
-	$(CONTAINER_CMD) make _test _generate _diff
-local : _test _generate _diff ## Run whole make process locally without a docker container
+	make _clean _generate _diff
+local : _fmt _generate _diff ## Run whole make process locally without a docker container
 
 SHELL = /bin/bash
 
@@ -25,25 +25,14 @@ help: ## Print this help
 # Public entrypoints for docker container use
 #
 #
-clean : ## Delete everything in ./rendered except for flux-patch.conf files.
-	make _clean CLUSTER=$(CLUSTER)
-
 diff : ## Run a git diff to compare before/after.
 	make _diff
 
-generate : ## Run clean, then generate new raw manifests for all clusters.
+generate :
 	make _generate CLUSTER=$(CLUSTER)
 
-fmt : ## Execute yamllint against all yaml files.
+fmt :
 	make _fmt
-
-test : ## Run fmt.
-	 make _test
-
-#
-# make _test
-#
-_test : _fmt
 
 _fmt :
 	@echo ">> Running tk fmt"
@@ -51,6 +40,12 @@ _fmt :
 		echo "tk fmt failed" >&2; \
 		exit 1;\
 	fi
+clean:
+	make _clean
+
+_clean :
+	@echo ">> Cleaning rendered"
+	rm -rf rendered 
 
 #
 # make _diff
@@ -61,7 +56,7 @@ _diff :
 	git --no-pager diff --exit-code rendered/
 	! git status -s | egrep "^\?\?"
 
-_generate : _clean
+_generate :
 	@echo ">> Generating rendered manifests via tk"
 	@mkdir -p $$(pwd)/rendered/ ;\
 	touch $$(pwd)/rendered/.gitkeep ;\
@@ -74,8 +69,4 @@ _generate : _clean
 		tk export $$(dirname $$f) $${rendered_path} > /dev/null ;\
 	done
 
-_clean :
-	@echo ">> Cleaning rendered manifests directory"
-	find rendered/environments/$(CLUSTER) -type d -empty -delete ;\
-
-.PHONY: _clean, _diff, _generate, _fmt, _test, clean, check-flux-patches, diff, generate, help, fmt, test
+.PHONY: _diff, _generate, _fmt, _clean, diff, generate, help, fmt, clean
