@@ -3,8 +3,13 @@ kind: Service
 metadata:
   labels:
     name: podinfo-demo
+    tanka.dev/environment: environments.prod.eu-prod1
   name: podinfo-demo
+  namespace: default
 spec:
-  ports: []
+  ports:
+  - name: podinfo-demo-http
+    port: 80
+    targetPort: 80
   selector:
     name: podinfo-demo

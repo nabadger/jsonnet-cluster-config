@@ -1,14 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations: {}
   labels:
     app.kubernetes.io/component: frontend
     app.kubernetes.io/name: podinfo
     app.kubernetes.io/part-of: podinfo
     app.mintel.com/owner: team-a
     name: podinfo-demo
+    tanka.dev/environment: environments.dev.eu-dev1
   name: podinfo-demo
+  namespace: default
 spec:
   minReadySeconds: 10
   replicas: 1
@@ -22,4 +23,36 @@ spec:
         name: podinfo-demo
     spec:
       containers:
-      - {}
+      - env:
+        - name: var1
+          value: somevalue
+        - name: var2
+          value: somevalue
+        envFrom:
+        - configMapRef:
+            name: my-ws-env
+        image: stefanprodan/podinfo:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+        name: podinfo-demo
+        ports:
+        - containerPort: 80
+          name: http
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 80
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: 300m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi

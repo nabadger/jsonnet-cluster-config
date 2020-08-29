@@ -3,7 +3,9 @@ kind: Service
 metadata:
   labels:
     name: redis
+    tanka.dev/environment: environments.prod.eu-prod1
   name: redis
+  namespace: default
 spec:
   ports:
   - name: redis-redis

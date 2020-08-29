@@ -3,7 +3,9 @@ kind: Service
 metadata:
   labels:
     name: mariadb
+    tanka.dev/environment: environments.prod.eu-prod1
   name: mariadb
+  namespace: default
 spec:
   ports:
   - name: mariadb-mariadb
